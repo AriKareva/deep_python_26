@@ -1,7 +1,7 @@
 import os
 import tempfile
 import unittest
-import solution as sl
+from . import solution as sl
 
 
 class TestFilterFile(unittest.TestCase):

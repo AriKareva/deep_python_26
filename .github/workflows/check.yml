@@ -24,15 +24,15 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Check flake8
-        run: flake8 ./01
+        run: flake8 $(git ls-files "*.py")
 
       - name: Check pylint
         if: ${{ always() }}
-        run: pylint ./01
+        run: pylint $(git ls-files "*.py")
 
       - name: Check tests with unittest
         if: ${{ always() }}
-        run: coverage run -m unittest
+        run: coverage run -m unittest discover
 
       - name: Check test coverage
         run: pytest --cov=.
